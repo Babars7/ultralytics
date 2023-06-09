@@ -1,0 +1,40 @@
+# Example usage: python train.py --data config28.yaml
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /home/valentin/Documents/WasteFlow/experiments/yolo6/YOLOv6/Warp-D_custom
+train: images/train # train images (relative to 'path')
+val: images/test # val images (relative to 'path')
+test: images/test # test images (optional)
+
+# Classes
+# nc: 28  # number of classes
+names:
+  0: metal
+  1: e-waste
+  2: plastic
+  3: glass
+  4: organic
+  5: cardboard
+  6: foam
+  7: paper
+  8: combination
+  9: 
+  10: 
+  11: 
+  12: 
+  13: 
+  14: 
+  15: 
+  16: 
+  17: 
+  18: 
+  19: 
+  20: 
+  21: 
+  22: 
+  23: 
+  24: 
+  25: 
+  26: 
+  27:  # class names
+ 

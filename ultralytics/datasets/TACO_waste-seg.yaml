@@ -1,0 +1,77 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# COCO8-seg dataset (first 8 images from COCO train2017) by Ultralytics
+# Example usage: yolo train data=coco8-seg.yaml
+# parent
+# ├── ultralytics
+# └── datasets
+#     └── coco8-seg  ← downloads here (1 MB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /home/valentin/Documents/WasteFlow/experiments/dataset/TACO/TACO_YOLO/  # dataset root dir
+train: images/train  # train images (relative to 'path') 4 images
+val: images/val  # val images (relative to 'path') 4 images
+test:  # test images (optional)
+
+# Classes
+names:
+  0: Aluminium_foil
+  1: Battery
+  2: Aluminium_blister_pack
+  3: Carded_blister_pack
+  4: Other_plastic_bottle
+  5: Clear_plastic_bottle
+  6: Glass_bottle
+  7: Plastic_bottle_cap
+  8: Metal_bottle_cap
+  9: Broken_glass
+  10: Food_Can
+  11: Aerosol
+  12: Drink_can
+  13: Toilet_tube
+  14: Other_carton
+  15: Egg_carton
+  16: Drink_carton
+  17: Corrugated_carton
+  18: Meal_carton
+  19: Pizza_box
+  20: Paper_cup
+  21: Disposable_plastic_cup
+  22: Foam_cup
+  23: Glass cup
+  24: Other_plastic_cup
+  25: Food_waste
+  26: Glass_jar
+  27: Plastic_lid
+  28: Metal_lid
+  29: Other_plastic
+  30: Magazine_paper
+  31: Tissues
+  32: Wrapping_paper
+  33: Normal_paper
+  34: Paper bag
+  35: Plastified paper bag
+  36: Plastic film
+  37: Six_pack_rings
+  38: Garbage_bag
+  39: Other_plastic_wrapper
+  40: Single-use_carrier_bag
+  41: Polypropylene_bag
+  42: Crisp_packet
+  43: Spread_tub
+  44: Tupperware
+  45: Disposable_food_container
+  46: Foam_food_container
+  47: Other_plastic_container
+  48: Plastic_glooves
+  49: Plastic_utensils
+  50: Pop_tab
+  51: Rope&strings
+  52: Scrap_metal
+  53: Shoe
+  54: Squeezable_tube
+  55: Plastic_straw
+  56: Paper_straw
+  57: Styrofoam_piece
+  58: Unlabeled_litter
+  59: Cigarette

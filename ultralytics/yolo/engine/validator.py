@@ -34,6 +34,7 @@ from ultralytics.yolo.utils.files import increment_path
 from ultralytics.yolo.utils.ops import Profile
 from ultralytics.yolo.utils.torch_utils import de_parallel, select_device, smart_inference_mode
 
+import wandb
 
 class BaseValidator:
     """
@@ -95,6 +96,7 @@ class BaseValidator:
         if trainer is passed (trainer gets priority).
         """
         self.training = trainer is not None
+        my_dict = {}
         if self.training:
             self.device = trainer.device
             self.data = trainer.data
@@ -105,6 +107,7 @@ class BaseValidator:
             self.loss = torch.zeros_like(trainer.loss_items, device=trainer.device)
             self.args.plots = trainer.stopper.possible_stop or (trainer.epoch == trainer.epochs - 1)
             model.eval()
+            my_dict['epoch'] = trainer.epoch
         else:
             callbacks.add_integration_callbacks(self)
             self.run_callbacks('on_val_start')
@@ -177,6 +180,7 @@ class BaseValidator:
         stats = self.get_stats()
         self.check_stats(stats)
         self.speed = dict(zip(self.speed.keys(), (x.t / len(self.dataloader.dataset) * 1E3 for x in dt)))
+        wandb.log({**my_dict,**self.speed})
         self.finalize_metrics()
         self.print_results()
         self.run_callbacks('on_val_end')
